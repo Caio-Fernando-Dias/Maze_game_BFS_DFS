@@ -3,28 +3,24 @@
 
 #include <iostream>
 #include <fstream>
+#include <math.h>
 
 #define MAXTAM 100
 
 using namespace std;
 
-struct Item{
-
-	int val;
+struct ItemB{
+	float val;
 };
 
-struct Block{
-
-	Item data;
-	Block *prox;
-
+struct BlockB{
+	ItemB data;
+	BlockB *prox;
 };
 
 struct Fila{
-
-	Block *prim;
-	Block *ult;
-
+	BlockB *prim;
+	BlockB *ult;
 };
 
 struct Labirinto{
@@ -32,15 +28,38 @@ struct Labirinto{
 	int vet_aux[MAXTAM];
 };
 
+struct ItemA{
+	int i;
+	int j;
+	float dist;
+};
+
+struct BlockA{
+	ItemA dataA;
+	BlockA *prox;
+};
+
+struct FilaA{
+	BlockA *prim;
+	BlockA *ult;
+};
+
 void FFVazia(Fila *f);
-void Enfileira(Fila *f, Item d);
-void Desenfileira(Fila *f, Item *d);
+void Enfileira(Fila *f, ItemB d);
+void Desenfileira(Fila *f, ItemB *d);
 void FImprime(Fila *f);
+
+void FFVaziaA(FilaA *f);
+void EnfileiraA(FilaA *f, ItemA d);
+void DesenfileiraA(FilaA *f, ItemA *d);
+void FImprimeA(FilaA *f);
+bool Verifica_fila_vaziaA(FilaA *f);
 
 void LeituraConfig(Labirinto *lab);
 bool Verifica_fila_vazia(Fila *f);
 void BFS(Labirinto *lab);
-
-
+void A(Labirinto *lab);
+void Menu();
+void MenuA();
 
 #endif

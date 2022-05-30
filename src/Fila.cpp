@@ -97,7 +97,7 @@ void LeituraConfig(Labirinto *lab){
 	int tam;
 	char n;
 	ifstream config;
-	config.open("configuracao.txt");
+	config.open("Matriz_DFS.txt");
 	config >> tam;
 	lab->tam = tam;
 
@@ -265,8 +265,9 @@ void A(Labirinto *lab){
 	float D_M;
 	
 	D_E = sqrt((pow(((tamanho - 1) - i),2)) + (pow(((tamanho - 1) - j),2)));
-	D_M = (fabs((tamanho - 1) - i) + fabs((tamanho - 1) - j));
+	D_M = (abs((tamanho - 1) - i) + abs((tamanho - 1) - j));
 
+	cout << opcA;
 	if(opcA == 1){
 		aux.dist = D_E;
 	}else if(opcA == 2){
@@ -284,7 +285,7 @@ void A(Labirinto *lab){
 			matriz[i][j] = -1;
 
 			D_E = sqrt((pow(((tamanho - 1) - i),2)) + (pow(((tamanho - 1) - j),2)));
-			D_M = (fabs((tamanho - 1) - i) + fabs((tamanho - 1) - j));
+			D_M = (abs((tamanho - 1) - i) + abs((tamanho - 1) - j));
 
 			if(opcA == 1){
 				aux.dist = D_E;
@@ -303,7 +304,7 @@ void A(Labirinto *lab){
 			matriz[i][j] = -1;
 
 			D_E = sqrt((pow(((tamanho - 1) - i),2)) + (pow(((tamanho - 1) - j),2)));
-			D_M = (fabs((tamanho - 1) - i) + fabs((tamanho - 1) - j));
+			D_M = (abs((tamanho - 1) - i) + abs((tamanho - 1) - j));
 
 			if(opcA == 1){
 				aux.dist = D_E;
@@ -322,7 +323,7 @@ void A(Labirinto *lab){
 			matriz[i][j] = -1;
 
 			D_E = sqrt((pow(((tamanho - 1) - i),2)) + (pow(((tamanho - 1) - j),2)));
-			D_M = (fabs((tamanho - 1) - i) + fabs((tamanho - 1) - j));
+			D_M = (abs((tamanho - 1) - i) + abs((tamanho - 1) - j));
 
 			if(opcA == 1){
 				aux.dist = D_E;
@@ -347,7 +348,7 @@ void A(Labirinto *lab){
 		matriz[tamanho - 1][tamanho - 1] = -1;
 		cout << endl;
 
-		cout << "O NUMERO DE INTERACOES: " << cont * 2 << endl;
+		cout << "O NUMERO DE INTERACOES: " << cont << endl;
 
 		cout << "MATRIZ APOS SER PERCORRIDA: " << endl;
 		for(i = 0; i < tamanho; i++){
